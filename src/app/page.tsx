@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { introduction } from "../lib/data";
 import Link from "next/link";
 
