@@ -26,8 +26,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
-        {children}
+        <nav style={{ backgroundColor: "black", color: "white" }}>Navbar</nav>
+        <main style={{ flex: "1" }}>{children}</main>
+        <footer style={{ backgroundColor: "red", color: "white" }}>
+          Footer
+        </footer>
       </body>
     </html>
   );
