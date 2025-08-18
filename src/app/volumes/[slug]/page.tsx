@@ -1,4 +1,4 @@
-import { volumes } from "@/lib/data";
+import { Volume } from "@/app/types/database";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -7,7 +7,10 @@ type PageProps = { params: Promise<{ slug: string }> };
 
 export default async function VolumePage({ params }: PageProps) {
   const { slug } = await params;
-  const volume = volumes.find((volume) => volume.slug === slug);
+  const res = await fetch(`http://localhost:3000/api/volumes/${slug}`, {
+    method: "GET",
+  });
+  const volume: Volume = await res.json();
 
   if (!volume) return notFound();
 
